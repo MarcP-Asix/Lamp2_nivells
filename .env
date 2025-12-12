@@ -1,0 +1,7 @@
+# Archivo .env
+APP_NAME=LAMP_EC2
+APP_ENV=Informatica
+DB_HOST=44.218.234.203
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
