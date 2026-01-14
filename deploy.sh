@@ -59,9 +59,9 @@ setup_database() {
 
     # Comandos SQL para crear la DB y el usuario
     SQL_COMMANDS="
-    CREATE DATABASE IF NOT EXISTS ${DB_NAME} DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-    CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';
-    GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'localhost';
+    CREATE DATABASE IF NOT EXISTS wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+    CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'Jodopa2006';
+    GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'%';
     FLUSH PRIVILEGES;
     "
 
@@ -70,9 +70,9 @@ setup_database() {
     check_success "Creación de la base de datos y el usuario"
     
     echo -e "${GREEN}Detalles de la Base de Datos:${NC}"
-    echo "  Nombre de la DB: ${DB_NAME}"
-    echo "  Usuario de la DB: ${DB_USER}"
-    echo "  Contraseña (¡GUARDAR!): ${DB_PASSWORD}"
+    echo "  Nombre de la DB: wordpress"
+    echo "  Usuario de la DB: root"
+    echo "  Contraseña (¡GUARDAR!): Jodopa2006"
 }
 
 # 3. Función para configurar el archivo wp-config.php
@@ -84,9 +84,9 @@ configure_wordpress() {
     check_success "Creación de wp-config.php"
 
     # Insertar detalles de la Base de Datos
-    sudo sed -i "s/database_name_here/${DB_NAME}/g" ${WORDPRESS_DIR}/wp-config.php
-    sudo sed -i "s/username_here/${DB_USER}/g" ${WORDPHRESS_DIR}/wp-config.php
-    sudo sed -i "s/password_here/${DB_PASSWORD}/g" ${WORDPRESS_DIR}/wp-config.php
+    sudo sed -i "s/database_name_here/wordpress/g" ${WORDPRESS_DIR}/wp-config.php
+    sudo sed -i "s/username_here/root/g" ${WORDPHRESS_DIR}/wp-config.php
+    sudo sed -i "s/password_here/Jodopa2006/g" ${WORDPRESS_DIR}/wp-config.php
     check_success "Inserción de detalles de la DB"
     
     # Opcional: Insertar Claves de Seguridad Únicas de WordPress (Salts)
