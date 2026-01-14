@@ -2,8 +2,8 @@
 
 # --- CONFIGURACIÓN ---
 WORDPRESS_DIR="/var/www/html"
-DB_NAME="wordpress_db"
-DB_USER="wordpress_user"
+DB_NAME="wordpress"
+DB_USER="root"
 # Genera una contraseña aleatoria de 16 caracteres para la base de datos
 DB_PASSWORD=$(cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 16)
 WP_VERSION="latest"
