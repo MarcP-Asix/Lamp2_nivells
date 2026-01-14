@@ -39,8 +39,8 @@ sudo systemctl restart apache2
 echo "=== Configurando base de datos para el backend ==="
 sudo mysql -u root -prootpassword <<MYSQL_SCRIPT
 CREATE DATABASE backend_db;
-CREATE USER 'backend_user'@'localhost' IDENTIFIED BY 'backend_pass';
-GRANT ALL PRIVILEGES ON backend_db.* TO 'backend_user'@'localhost';
+CREATE USER 'Web1'@'%' IDENTIFIED BY 'Jodopa2006';
+GRANT ALL PRIVILEGES ON backend_db.* TO 'Web1'@'%';
 FLUSH PRIVILEGES;
 MYSQL_SCRIPT
 
